@@ -1,0 +1,930 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Capitulo 1 - Quices</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-opaquegray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="c4267d5a-e57d-4db2-9e79-34a7ae1812e0" class="page sans"><header><h1 class="page-title">Capitulo 1 - Quices</h1></header><div class="page-body"><h3 id="dfda75ee-440a-4c44-b3ea-08f69cfc9752" class="">DIEGO ANDRES MARTELO HERNANDEZ</h3><p id="ef83512f-1afc-41c7-a961-5540c5c23165" class=""><strong>C.C. 1002187141</strong></p><p id="91393dd5-7218-41f9-bd05-09fd42144900" class="">
+</p><h2 id="f814e568-a2f6-4bad-8c64-92c3134353eb" class="">UNIDAD 1</h2><h3 id="6a090352-988a-495a-849d-726d49daeec7" class="">Q1</h3><p id="9aca1935-0360-422e-8c1f-9b4ed3417b84" class="">Codifique 7 líneas de la función print() para producir un resultado como el de la imagen de abajo</p><figure id="43856542-080f-42f2-b2f4-3328a1d6357b" class="image" style="text-align:left"><a href="Capitulo%201%20-%20Quices%20c4267d5ae57d4db29e7934a7ae1812e0/Untitled.png"><img style="width:432px" src="Capitulo%201%20-%20Quices%20c4267d5ae57d4db29e7934a7ae1812e0/Untitled.png"/></a></figure><pre id="77cc08b3-0263-4a1b-bbfd-b07e6dabacc1" class="code"><code>print(&quot; &quot;*5,&quot;*&quot;)
+print(&quot; &quot;*4,&quot;*&quot;*3)
+print(&quot; &quot;*3,&quot;*&quot;*5)
+print(&quot; &quot;,&quot;*&quot;*9)
+print(&quot; &quot;*3,&quot;*&quot;*5)
+print(&quot; &quot;*4,&quot;*&quot;*3)
+print(&quot; &quot;*5,&quot;*&quot;)</code></pre><p id="a86b313d-f8c3-43eb-9c49-244411ae2dd4" class="">
+</p><p id="05de6100-418e-4eb5-946b-3084f3ce94aa" class="">
+</p><h2 id="5c3cb765-c616-4a55-9874-f39631b36742" class="">UNIDAD 2</h2><h3 id="560db9be-b464-46d9-9772-5c46ea6383ea" class="">B1 - Q1</h3><p id="c269f144-4d33-47f0-9eb9-dfee0b4d1885" class="">Exprese la forma de encontrar el hotel en pseudocódigo usando los comandos de pseudocódigo dados abajo. Escriba todo lo demás en lenguaje cotidiano excepto los comandos de abajo. Preste atención a la indentación al usar dichos comandos.</p><figure id="e190a390-64f6-47fd-9d2b-fb03977589f2" class="image"><a href="Capitulo%201%20-%20Quices%20c4267d5ae57d4db29e7934a7ae1812e0/Untitled%201.png"><img style="width:3135px" src="Capitulo%201%20-%20Quices%20c4267d5ae57d4db29e7934a7ae1812e0/Untitled%201.png"/></a></figure><pre id="016905cb-8375-433e-989f-ba3f24d84a75" class="code"><code>1. INICIO
+2. Inicializar ubicacion en predeterminada
+3. Orientar cuerpo en direccion oriente
+4. Caminar el cruce
+5. For. Analizar los 4 edificios 
+	6.1 If. El edificio es la oficina postal 
+			6.1.1 Cruzar a la derecha frente al edifcio
+	6.2 If. Se acabaron los edificios y no encontro la oficina
+			6.2.1 Ir a INICIO e intentar nuevamente porque algo hizo mal
+	fin For
+7. While. No Se ve un Restaurante Italiano
+			8. Caminar
+			9.1 If. Se ve un restaruante italiano
+					9.1.1 Llegar al restaurante Italiano
+			fin While
+10. Caminar 3 edificios y encontrar el hotel Buscado
+11. FIN
+	</code></pre><h3 id="dd83d6b4-f17a-4aab-973f-a8c30139b337" class="">B2 - Q1</h3><p id="5b8bdfae-9402-4a21-b67f-5d41ef73d4ef" class="">Escriba un diagrama de flujos que factorice 18, 39, 63, 126, 792.</p><p id="81fe8826-c5f9-484c-a8e3-31e2bb920cac" class="">
+</p><figure id="283269ea-68e3-4e47-9815-4a0400a48a76" class="image"><a href="Capitulo%201%20-%20Quices%20c4267d5ae57d4db29e7934a7ae1812e0/Diagrama_sin_ttulo.jpg"><img style="width:595px" src="Capitulo%201%20-%20Quices%20c4267d5ae57d4db29e7934a7ae1812e0/Diagrama_sin_ttulo.jpg"/></a></figure><pre id="4ddc63af-b1b5-48c7-b152-0c7d451dfe7f" class="code"><code>numeroFactorizar = int(input(&quot;Ingrese un numero a factorizar: &quot;))
+nF = numeroFactorizar
+if(nF==1):
+    print(&quot;1&quot;)
+    print(f&#x27;Estos son los factores de {numeroFactorizar}&#x27;) 
+else:    
+    while(nF!=1):
+        while(nF%2 == 0):
+            print(&quot;2&quot;)
+            nF=nF/2
+        while(nF%3 == 0):
+            print(&quot;3&quot;)
+            nF=nF/3
+        while(nF%5 == 0):
+            print(&quot;5&quot;)
+            nF=nF/5
+        while(nF%7 == 0):
+            print(&quot;7&quot;)
+            nF=nF/7
+        if(nF%nF == 0):
+            print(int(nF))
+            if(nF!=1):
+                nF=nF/nF
+                print(int(nF))
+
+    print(f&#x27;Estos son los factores de {numeroFactorizar}&#x27;)</code></pre><h2 id="196479e6-5666-44b3-997c-dd109164b67b" class="">UNIDAD 3</h2><h3 id="e78be803-dcee-419d-a9bb-81bd69b3b475" class="">Q1</h3><p id="65ee7111-5397-45e3-a131-9d1aecd4f665" class="">n! se define como n * (n-1) * (n-2) * (n-3) <em>...</em>
+ 2 * 1. Encuentre 5! y 10! usando enteros y el operador * e imprimalos como sigue.</p><pre id="c8447334-f8de-4812-a130-f9608ab0e4b8" class="code"><code>factorial5 = 5 * (5-1) * (5-2) * (5-3) * 1
+print(f&#x27;5! = {factorial5}&#x27;)
+factorial10 = 10 * (10-1) * (10-2) * (10-3) * (10-4) * (10-5) * (10-6) * (10-7) * (10-8) * 1
+print(f&#x27;10! = {factorial10}&#x27;)</code></pre><p id="5948e620-5cd9-42b0-8ada-f3bed5668d2f" class="">
+</p><p id="4f160ba8-27e2-4e60-878e-c62a250ad6e5" class="">
+</p><h2 id="8e0c8dc0-aad6-4e99-b0dc-efa8d8e336d0" class="">UNIDAD 4</h2><h3 id="fe9aff44-9ea5-465e-b09e-99508189226c" class="">B1 - Q1</h3><p id="a614f30f-259f-4ab3-a4e9-f1d5f70c7e5a" class="">Asigne los valores 30, 60 a las variables width y height, respectivamente. Escriba un programa que use esas dos variables para encontrar el área del rectángulo como se muestra abajo.</p><table id="d6849b65-bf88-4753-98f3-feefe7c62df7" class="simple-table"><tbody><tr id="75f01659-4ba6-43a0-a7ff-1787d726e174"><td id="_eWT" class=""><strong>Condición para la ejecución</strong></td><td id="vV\p" class="">&quot;Imprima&quot; Area del Rectángulo: 1800.&quot;</td></tr><tr id="6bafe580-1c24-484a-b9fb-5893cf5ee7e2"><td id="_eWT" class=""><strong>Tiempo</strong></td><td id="vV\p" class="">5 Minutos</td></tr></tbody></table><pre id="b8dfb05a-e1c5-41f7-b0f3-21b883ab9c73" class="code"><code>width = 30
+height = 60
+areaRectangulo = width*height
+print(f&#x27;Area del Rectangulo: {areaRectangulo}&#x27;)</code></pre><h3 id="5737bb18-4e3f-46c7-b29e-079c5c60e014" class="">B1 - Q2</h3><p id="05c1a81f-0b1b-4e8e-a1bb-1dc832ec3f7e" class="">El teorema de Pitágoras afirma que el cuadrado de la hipotenusa c para cualquier triángulo rectángulo es igual al cuadrado de la base a más el cuadrado de la altura b. Escriba un código que calcule el largo de la hipotenusa recibiendo la base y la altura como enteros.</p><table id="4920b62c-8655-4293-81ed-5f75dd1565aa" class="simple-table"><tbody><tr id="3e4b0ed0-2b15-4f12-8a5d-c2e48ab99079"><td id="P|Fs" class=""><strong>Condición para la ejecución</strong></td><td id="ztFt" class="">Ingrese en la primera línea la base y la altura en la segunda línea. En la tercera línea, imprima el resultado de calcular la longitud de la hipotenusa.</td></tr><tr id="5d755a2b-2ad5-44ee-8e81-16041505e2cd"><td id="P|Fs" class=""><strong>Tiempo</strong></td><td id="ztFt" class="">5 Minutos</td></tr><tr id="f4e73d6f-f441-4e08-a76a-ac4d56e31204"><td id="P|Fs" class=""><strong>El teorema de Pitágoras</strong></td><td id="ztFt" class="">c**2 = a**2 + b**2</td></tr></tbody></table><figure id="2c8793e1-870e-461e-99e9-ae832358ec53" class="image" style="text-align:left"><a href="Capitulo%201%20-%20Quices%20c4267d5ae57d4db29e7934a7ae1812e0/Untitled%202.png"><img style="width:192px" src="Capitulo%201%20-%20Quices%20c4267d5ae57d4db29e7934a7ae1812e0/Untitled%202.png"/></a></figure><pre id="d170b610-4b8b-4519-b0bd-eebb6202060d" class="code"><code>base = int(input(&quot;Ingrese la base del triangulo: &quot;))
+altura = int(input(&quot;Ingrese la altura del triangulo: &quot;))
+hipotenusa = ((base**2) + (altura**2))**0.5
+print(f&#x27;La hipotenusa del tringulo con base {base} y altura {altura} tiene un valor de {hipotenusa}&#x27;)</code></pre><h3 id="25b0ef75-178c-4f1c-8fef-52af97853677" class="">B2 - Q1</h3><p id="f7906025-3aaf-4427-93ad-3069130c3ef5" class="">Reciba el valor de un radio del usuario e imprima el área y la circunferencia de un círculo con dicho radio. Use la variable PI = 3.141592 para obtener esos valores.</p><table id="f4f8bb78-506f-4be8-b267-a19a6be249ef" class="simple-table"><tbody><tr id="307c8649-d4e6-4875-abd1-bb2b1cc35701"><td id="^g\c" class=""><strong>Resultado de ejemplo</strong></td><td id="Ig`R" class="" style="width:296px">Ingrese el radio de un círculo: 11
+La circunferencia del círculo es = 69.115024, el área del círculo es = 280.132632</td></tr></tbody></table><ul id="80bac712-170a-4b8a-a541-34d500bb4faa" class="bulleted-list"><li style="list-style-type:disc">La circunferencia de un círculo: 2 * radio * PI</li></ul><ul id="be42bc2b-3b74-4bdd-8af5-d25af4bcab18" class="bulleted-list"><li style="list-style-type:disc">El área de un círculo: PI * radio * radio</li></ul><ul id="9d53c7e3-833f-4edc-bc25-7f39d4239dba" class="bulleted-list"><li style="list-style-type:disc">Estudie el área y la circunferencia de un círculo antes de continuar.</li></ul><pre id="ac067bd1-bb2c-4031-b68b-b4f8a5560098" class="code"><code>radio = float(input(&quot;Ingrese el radio del circulo: &quot;))
+pi = 3.141592
+circunferenciaCirculo = 2 * radio * pi
+areaCirculo = pi * radio * radio
+print(f&#x27;La circunferencia del ciruclo es = {circunferenciaCirculo}, el area del circulo es = {areaCirculo}&#x27;)</code></pre><h3 id="ccccbdc3-6232-4d44-a0a3-3ecc0aec33e4" class="">B2 - Q2</h3><p id="0198e1bc-e5de-4474-84fb-47b1dd6ae625" class="">Escriba un programa que muestre los valores cuadrados de 2 a 6 en una tabla como la que se muestra a continuación. Como se muestra abajo, a se puede incrementar de 2 a 6, y n tiene el valor de 2. Ingrese el valor actual para la parte correspondiente a &#x27;an&#x27;, de tal forma que el resultado de salida de la ecuación sea 22.</p><figure id="4ae75889-e0a5-47ec-91e2-c5dfbf6a5361" class="image" style="text-align:left"><a href="Capitulo%201%20-%20Quices%20c4267d5ae57d4db29e7934a7ae1812e0/Untitled%203.png"><img style="width:768px" src="Capitulo%201%20-%20Quices%20c4267d5ae57d4db29e7934a7ae1812e0/Untitled%203.png"/></a></figure><pre id="bc6b823b-55dc-4f4c-aa63-2c07308737d2" class="code"><code>#Esto seria mejor con CICLOS, pero para hacerlo SECUENCIAL lo hago de la forma siguiente
+n = 2
+a = 2
+print(f&#x27;a    n    a**n&#x27;)
+print(f&#x27;{a}    {n}   &#x27;,a**n)
+a=3
+print(f&#x27;{a}    {n}   &#x27;,a**n)
+a=4
+print(f&#x27;{a}    {n}   &#x27;,a**n)
+a=5
+print(f&#x27;{a}    {n}   &#x27;,a**n)
+a=6
+print(f&#x27;{a}    {n}   &#x27;,a**n)
+print(&quot;\n&quot;)
+
+#Aunque si se quiere hacer todo con variables tocaria volver a caluclar cada vez el &#x27;a**n&#x27; de la forma siguiente
+n = 2
+a = 2
+potencia = a**n
+print(f&#x27;a    n    a**n&#x27;)
+print(f&#x27;{a}    {n}    {potencia}&#x27;)
+a = 3
+potencia = a**n #Toca calcular nuevamente porque si no la variable potencia se calcula en base al 2
+print(f&#x27;{a}    {n}    {potencia}&#x27;)
+a = 4
+potencia = a**n
+print(f&#x27;{a}    {n}    {potencia}&#x27;)
+a = 5
+potencia = a**n
+print(f&#x27;{a}    {n}    {potencia}&#x27;)
+a = 6
+potencia = a**n
+print(f&#x27;{a}    {n}    {potencia}&#x27;)
+print(&quot;\n&quot;)
+
+#Con ciclos seria
+n=2
+print(f&#x27;a    n    a**n&#x27;)
+for a in range(2,7):
+    potencia = a ** n
+    print(f&#x27;{a}    {n}    {potencia}&#x27;)
+    a+=1</code></pre><p id="1bb2ae4e-47e9-43a5-983b-a28c625fdf70" class="">
+</p><p id="6c12e60b-6642-493e-8075-2a9df81ccd03" class="">
+</p><h2 id="15264880-9b7d-44f3-b2a7-4062b7e9388a" class="">UNIDAD 5</h2><h3 id="d7837d52-c08b-4da4-82f6-2d961488b061" class="">B1 - Q1</h3><figure id="b450aa56-83b9-4d05-97f9-0d5ac0319a39" class="image" style="text-align:left"><a href="Capitulo%201%20-%20Quices%20c4267d5ae57d4db29e7934a7ae1812e0/Untitled%204.png"><img style="width:912px" src="Capitulo%201%20-%20Quices%20c4267d5ae57d4db29e7934a7ae1812e0/Untitled%204.png"/></a></figure><pre id="629fb581-2211-458d-9863-a7f0b83bda5b" class="code"><code>n = int(input(&quot;Digite un entero: &quot;))
+if(n%2==0):
+    esImpar = False 
+else:
+    esImpar = True
+print(f&#x27;El entero es Impar?: {esImpar}&#x27;)</code></pre><h3 id="b287fe88-8779-409d-a593-aa2642410390" class="">B1 - Q2</h3><figure id="bac01f6c-d9f6-4acb-b5ce-1c27ffeec9c0" class="image" style="text-align:left"><a href="Capitulo%201%20-%20Quices%20c4267d5ae57d4db29e7934a7ae1812e0/Untitled%205.png"><img style="width:912px" src="Capitulo%201%20-%20Quices%20c4267d5ae57d4db29e7934a7ae1812e0/Untitled%205.png"/></a></figure><pre id="b4534c1e-2ccd-423b-b312-02dfd8f2b060" class="code"><code>n = int(input(&quot;Digite un entero: &quot;))
+condicion = False
+if((n&gt;=0 and n&lt;=100) and (n%2==0)):
+    condicion = True
+print(f&#x27;La entrada es un entero par entre 0 y 100?: {condicion}&#x27;)</code></pre><h3 id="3da7f342-5d4b-444b-a5c5-506e64e2a034" class="">B2 - Q1</h3><figure id="07112994-f320-44f9-924b-e01e142a5944" class="image" style="text-align:left"><a href="Capitulo%201%20-%20Quices%20c4267d5ae57d4db29e7934a7ae1812e0/Untitled%206.png"><img style="width:912px" src="Capitulo%201%20-%20Quices%20c4267d5ae57d4db29e7934a7ae1812e0/Untitled%206.png"/></a></figure><pre id="6aefae41-2859-4f85-ba57-2b9c9812f8ac" class="code"><code>def centecimoDigito3():
+    n = int(input(&quot;Digite un entero de tres digitos: &quot;))
+    if(len(str(n))!=3):
+        print(&quot;El numero tiene menos o mas de 3 digitos!&quot;)
+        centecimoDigito3()
+    else:    
+        validacion = n//10//10
+        condicion =  False
+        if(validacion==3):
+            condicion = True
+        print(f&#x27;El centesimo digito del entero es 3?: {condicion}&#x27;)
+        
+centecimoDigito3()</code></pre><h3 id="4534ad9d-aaed-4c2c-9be1-525e76cbcd91" class="">B2 - Q2</h3><figure id="8670d83c-78eb-4e83-9b3e-ecab131ff90a" class="image" style="text-align:left"><a href="Capitulo%201%20-%20Quices%20c4267d5ae57d4db29e7934a7ae1812e0/Untitled%207.png"><img style="width:912px" src="Capitulo%201%20-%20Quices%20c4267d5ae57d4db29e7934a7ae1812e0/Untitled%207.png"/></a></figure><pre id="4a464ac5-86af-44ec-b9ae-940c4f4c0813" class="code"><code>n = int(input(&quot;Digite un entero: &quot;))
+condicion = False
+if(n%5==0):
+    condicion = True
+print(f&#x27;El entero es multiplo de 5?: {condicion}&#x27;)</code></pre><p id="e4d97fc4-5fcb-4051-932b-619aa1a16801" class="">
+</p><h2 id="ff6ebdd4-31aa-4ae7-ac73-5e98dde59266" class="">UNIDAD 6</h2><h3 id="ea766c65-029d-48d9-a77e-c0fcfcfb8a17" class="">Q3</h3><figure id="fc77642a-2cbd-4ad1-a81b-f0ca524d3580" class="image" style="text-align:left"><a href="Capitulo%201%20-%20Quices%20c4267d5ae57d4db29e7934a7ae1812e0/Untitled%208.png"><img style="width:864px" src="Capitulo%201%20-%20Quices%20c4267d5ae57d4db29e7934a7ae1812e0/Untitled%208.png"/></a></figure><pre id="bf009e06-f5ac-4db9-bf62-57916732e3ca" class="code"><code>def restaurante():
+    print (&quot;Welcome to yimmy restaurant. Here is the menu.\n - Burguer(enter b)\n - Chicken(ingrese c)\n - Pizza(enter b)&quot;)
+    choise = str(input(&quot;Choose a menu (enter b,c,p): &quot;)).lower()
+    status = False
+    if(choise == &quot;b&quot;):
+        item = &quot;burguer&quot;
+        status = True
+    elif(choise == &quot;c&quot;):
+        item = &quot;chicken&quot;
+        status = True
+    elif(choise == &quot;p&quot;):
+        item = &quot;pizza&quot;
+        status = True
+    if(status == True):
+        print(f&#x27;You chose {item}.&#x27;)
+    else:
+        print(&quot;\nNo item in the menu, try again\n&quot;)
+        restaurante()
+
+restaurante()</code></pre><p id="05be9892-8ff4-4207-8392-2b7af8c71a4c" class="">
+</p><p id="293069d1-ee58-4179-bdf6-751d7fe92d96" class="">
+</p><h2 id="63df7567-1cfb-4746-b3a6-f88f10947cb7" class="">UNIDAD 7</h2><h3 id="2a8a3da2-50b2-467d-961e-f94e60759ff7" class="">B1 - Q2</h3><figure id="aac5da2b-8a76-44b3-8923-960638e9328b" class="image" style="text-align:left"><a href="Capitulo%201%20-%20Quices%20c4267d5ae57d4db29e7934a7ae1812e0/Untitled%209.png"><img style="width:912px" src="Capitulo%201%20-%20Quices%20c4267d5ae57d4db29e7934a7ae1812e0/Untitled%209.png"/></a></figure><pre id="987bd194-0683-4d2d-ab0f-6bcf22605de7" class="code"><code>#De la forma ideal en que se ingresarian los datos
+n1 = int(input(&quot;Ingresa un entero: &quot;))
+n2 = int(input(&quot;Ingresa otro entero para saber si es divisible por el primero : &quot;))
+if(n1%n2==0):
+    print(f&#x27;{n1} SI es un multiplo de {n2}&#x27;)
+else:
+    print(f&#x27;{n1} NO es un multiplo de {n2}&#x27;)
+
+#De la forma que tal vez lo pide el ejercicio, pero habria que usar listas y eso no lo hemos dado aun
+entrada = input(&quot;Ingrese dos enteros: &quot;).split()
+n1 = int(entrada[0])
+n2 = int(entrada[1])
+if(n1%n2==0):
+    print(f&#x27;{n1} SI es un multiplo de {n2}&#x27;)
+else:
+    print(f&#x27;{n1} NO es un multiplo de {n2}&#x27;)</code></pre><h3 id="a114c1c9-b4c0-4fde-a535-65dddee8d6fe" class="">B2 - Q1</h3><figure id="590eb11b-c109-463d-a103-c67972fe0bac" class="image" style="text-align:left"><a href="Capitulo%201%20-%20Quices%20c4267d5ae57d4db29e7934a7ae1812e0/Untitled%2010.png"><img style="width:864px" src="Capitulo%201%20-%20Quices%20c4267d5ae57d4db29e7934a7ae1812e0/Untitled%2010.png"/></a></figure><pre id="b538209b-32d3-48b8-8e27-2bbc5e56716d" class="code"><code>def esPositivo(n):
+    if(n&gt;0):
+        return True
+    else:
+        return False
+    
+def operaciones():
+    print(&quot;1.Suma 2.Resta 3.Multiplicacion 4.Division&quot;)
+    opcion = int(input(&quot;Digite el numero de la operacion a realizar: &quot;))
+    correcto = True #Esta variable es para verificar si todo es bien y si no volver a llamar a la funcion
+    #LO IDEAL SERIA USAR WHILE PARA VERIFICAR, PERO PARA EFECTOS DEL EJERCICIO NO SE USARA 
+    if(opcion&gt;=1 and opcion&lt;=4):
+        n1 = int(input(&quot;Ingrese un numero entero positivo: &quot;))
+        if(esPositivo(n1)==True):
+            n2 = int(input(&quot;Ingrese otro numero entero positivo: &quot;))
+            if(esPositivo(n2)==True):
+                if(opcion==1):
+                    operacion = n1 + n2
+                    return print(f&#x27;{n1} + {n2} = {operacion}&#x27;)
+                elif(opcion==2):
+                    operacion = n1 - n2
+                    return print(f&#x27;{n1} - {n2} = {operacion}&#x27;)
+                elif(opcion==3):
+                    operacion = n1 * n2
+                    return print(f&#x27;{n1} * {n2} = {operacion}&#x27;)
+                elif(opcion==4):
+                    operacion = n1 / n2
+                    return print(f&#x27;{n1} / {n2} = {operacion}&#x27;)
+        
+            else:
+                print(f&#x27;\nEl numero no es Positivo! Volvamos a Empezar\n&#x27;)
+                correcto=False
+        else:
+            print(f&#x27;\nEl numero no es Positivo! Volvamos a Empezar\n&#x27;)
+            correcto=False
+  
+    else:
+        print(f&#x27;\nSe ingreso un numero incorrecto, Volvamos a Empezar\n&#x27;) 
+        correcto=False
+
+    if(correcto==False):
+        operaciones()
+    
+operaciones()</code></pre><p id="b6fe1810-9cc2-4ea8-9783-e94d461cab45" class="">
+</p><p id="de7fa399-e194-4526-bd76-a904ad28902f" class="">
+</p><h2 id="bad74411-6695-42f7-9e9a-cf3a1d67fe76" class="">UNIDAD 8</h2><h3 id="cb585f2c-b0fc-458e-a448-0e0c5913f2fd" class="">B1 - Q1</h3><figure id="c37ae524-146c-40a3-9352-db269eb59efb" class="image" style="text-align:left"><a href="Capitulo%201%20-%20Quices%20c4267d5ae57d4db29e7934a7ae1812e0/Untitled%2011.png"><img style="width:816px" src="Capitulo%201%20-%20Quices%20c4267d5ae57d4db29e7934a7ae1812e0/Untitled%2011.png"/></a></figure><pre id="aa93394b-f16c-4dce-b751-fb63c7ff08da" class="code"><code>bts = [&#x27;V&#x27;,&#x27;J-Hope&#x27;,&#x27;RM&#x27;,&#x27;Jungkook&#x27;,&#x27;Jin&#x27;,&#x27;Jimin&#x27;,&#x27;Suga&#x27;]
+for UwU in bts:
+    print(UwU)</code></pre><h3 id="adebe39c-4c29-470c-a625-4f30c387997d" class="">B1 - Q2</h3><figure id="dc902f83-74a7-4959-9976-81b013d04cca" class="image" style="text-align:left"><a href="Capitulo%201%20-%20Quices%20c4267d5ae57d4db29e7934a7ae1812e0/Untitled%2012.png"><img style="width:816px" src="Capitulo%201%20-%20Quices%20c4267d5ae57d4db29e7934a7ae1812e0/Untitled%2012.png"/></a></figure><pre id="383a30bf-1d9a-4b80-bc51-a143142979ad" class="code"><code>suma = 0
+for i in range(0, 101, 1):
+    suma += i
+print(suma)</code></pre><h3 id="750e6bd6-3fae-4d76-aa7c-1894c3517629" class="">B1 - Q3</h3><figure id="c791e315-e34c-4b74-bb2d-939773a0bbed" class="image" style="text-align:left"><a href="Capitulo%201%20-%20Quices%20c4267d5ae57d4db29e7934a7ae1812e0/Untitled%2013.png"><img style="width:816px" src="Capitulo%201%20-%20Quices%20c4267d5ae57d4db29e7934a7ae1812e0/Untitled%2013.png"/></a></figure><pre id="b67ddc74-08d0-445a-a825-c46e094fd2dd" class="code"><code>suma = 0
+for i in range(0, 101, 2):
+    suma += i
+print(suma)</code></pre><h3 id="a322c6d4-4f9e-48c0-b42d-65bd80216549" class="">B2 - Q1</h3><figure id="fc0a8921-7620-4ce3-9f42-e553b959dc3f" class="image" style="text-align:left"><a href="Capitulo%201%20-%20Quices%20c4267d5ae57d4db29e7934a7ae1812e0/Untitled%2014.png"><img style="width:816px" src="Capitulo%201%20-%20Quices%20c4267d5ae57d4db29e7934a7ae1812e0/Untitled%2014.png"/></a></figure><pre id="f2b0df3e-d246-4aac-a755-a692164e536f" class="code"><code>def esPar(n):
+    if(n%2==0):
+        return True
+    else:
+        False
+    
+n = int(input(&quot;Ingrese el numero de filas y columnas: &quot;)) 
+maximoCifras = int(len(str(n*n)))
+count = n + 1
+for i in range(1, count, 1):
+    if(esPar(i)==True):
+        for k in range(count-1, count-n-1, -1):
+            print(f&#x27;{k:{maximoCifras}d}&#x27;, end=&quot; &quot;)
+    else:
+        for k in range(count-n, count, 1):
+            print(f&#x27;{k:{maximoCifras}d}&#x27;, end=&quot; &quot;)
+        
+    count+=n
+    print(&quot;\n&quot;)</code></pre><p id="8a98597a-f7c6-421c-85d9-92f509400d04" class="">
+</p><p id="50d07e63-9aba-42c3-9454-858612acbccf" class="">
+</p><h2 id="6c04f57b-bf13-4143-bfa0-5d603c80f71c" class="">UNIDAD 9</h2><h3 id="47927ba1-399b-44ab-856b-ae971e77767a" class="">B2 - Q2</h3><figure id="5a3410a3-be7e-42c5-91c2-2810f0b91f8e" class="image" style="text-align:left"><a href="Capitulo%201%20-%20Quices%20c4267d5ae57d4db29e7934a7ae1812e0/Untitled%2015.png"><img style="width:864px" src="Capitulo%201%20-%20Quices%20c4267d5ae57d4db29e7934a7ae1812e0/Untitled%2015.png"/></a></figure><pre id="752eb06b-8482-4249-a4a6-b28ec757abc0" class="code"><code>import random as rd
+n = rd.randrange(1,101)
+print(&quot;Adivine un numero entre 1 y 100&quot;)
+user = 0
+count = 0
+while (user!=n):
+    count+=1
+    user = int(input(&quot;Ingrese un numero: &quot;))
+    if(user==n):
+        print(f&#x27;Felicidades Adivinaste, Cantidad de Intentos: {count}&#x27;)
+    elif(user&lt;n):
+        print(&quot;Es mas alto&quot;)
+    else:
+        print(&quot;Es mas bajo&quot;)</code></pre><p id="de178624-d41e-4f71-9520-5bfa3002483e" class="">
+</p></div></article></body></html>
